@@ -1,0 +1,6 @@
+[environments.env1]
+store = "modishop-plus-1"
+password  = "shptka_eec17c61d248bc044b89a2bad38df0c1"
+output = "json"
+live = true
+allow-live = true
