@@ -1,10 +1,10 @@
 {%- comment -%}
-Gift wrap snippet (UI only).
-Required section settings:
-- section.settings.enable_gift_wrap: boolean to show/hide the option
-- section.settings.gift_wrap_product: product object for gift wrapping
-- section.settings.gift_wrap_label: customizable checkbox label
-- section.settings.placeholder_to, section.settings.placeholder_from, section.settings.placeholder_message: input placeholders
+  Gift wrap snippet (UI only).
+  Required section settings:
+  - section.settings.enable_gift_wrap: boolean to show/hide the option
+  - section.settings.gift_wrap_product: product object for gift wrapping
+  - section.settings.gift_wrap_label: customizable checkbox label
+  - section.settings.placeholder_to, section.settings.placeholder_from, section.settings.placeholder_message: input placeholders
 {%- endcomment -%}
 
 {%- if section.settings.enable_gift_wrap and section.settings.gift_wrap_product != blank -%}
@@ -17,55 +17,59 @@ Required section settings:
         value="Yes"
         aria-controls="gift-wrap-fields"
         aria-expanded="false"
-        data-gift-wrap-toggle
-      />
+        data-gift-wrap-toggle />
       <span class="gift-wrap__text">{{ section.settings.gift_wrap_label | default: "Add gift wrapping?" }}</span>
     </label>
 
-    <div id="gift-wrap-fields" class="gift-wrap__fields" style="display:none;">
-      <input 
-        type="hidden" 
-        id="gift-wrap-variant-id" 
+    <div
+      id="gift-wrap-fields"
+      class="gift-wrap__fields"
+      style="display:none;">
+      <input
+        type="hidden"
+        id="gift-wrap-variant-id"
         value="{{ section.settings.gift_wrap_product.selected_or_first_available_variant.id }}"
-        data-gift-wrap-variant-id
-      >
+        data-gift-wrap-variant-id>
 
       <div class="gift-wrap__inputs">
-        <input
-          type="text"
-          name="properties[To]"
-          id="gift-to"
-          placeholder="{{ section.settings.placeholder_to | default: "Recipient's name" }}"
-          class="gift-wrap__input field__input"
-          required
-          data-gift-wrap-to
-        />
-
-        <input
-          type="text"
-          name="properties[From]"
-          id="gift-from"
-          placeholder="{{ section.settings.placeholder_from | default: "Sender's name" }}"
-          class="gift-wrap__input field__input"
-          data-gift-wrap-from
-        />
-
-        <textarea
-          name="properties[Message]"
-          id="gift-message"
-          placeholder="{{ section.settings.placeholder_message | default: "Gift message (optional)" }}"
-          class="gift-wrap__textarea field__input"
-          data-gift-wrap-message
-        ></textarea>
+        <div class="cart-drawer__gift-wrap-field">
+          <label for="gift-to">To</label>
+          <input
+            type="text"
+            name="properties[To]"
+            id="gift-to"
+            placeholder="{{ section.settings.placeholder_to | default: "Recipient's name" }}"
+            class="gift-wrap__input field__input"
+            required
+            data-gift-wrap-to />
+        </div>
+        <div class="cart-drawer__gift-wrap-field">
+          <label for="gift-from">From</label>
+          <input
+            type="text"
+            name="properties[From]"
+            id="gift-from"
+            placeholder="{{ section.settings.placeholder_from | default: "Sender's name" }}"
+            class="gift-wrap__input field__input"
+            data-gift-wrap-from /></div>
+        <div class="cart-drawer__gift-wrap-field">
+          <label for="gift-message">Gift message</label>
+          <textarea
+            name="properties[Message]"
+            id="gift-message"
+            placeholder="{{ section.settings.placeholder_message | default: "Gift message (optional)" }}"
+            class="gift-wrap__textarea field__input"
+            maxlength="{{ section.settings.max_message_length | default: 100 }}"
+            data-gift-wrap-message></textarea>
+        </div>
       </div>
 
       <div class="gift-wrap__error-container">
-        <p 
+        <p
           class="gift-wrap__error form__message"
           id="gift-wrap-error"
           style="display:none;"
-          role="alert"
-        ></p>
+          role="alert"></p>
       </div>
     </div>
   </div>

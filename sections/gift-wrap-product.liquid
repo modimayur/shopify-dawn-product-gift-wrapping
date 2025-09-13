@@ -1,0 +1,60 @@
+{% schema %}
+{
+  "name": "Gift Wrap Product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_gift_wrap",
+      "label": "Enable gift wrap option",
+      "default": true
+    },
+    {
+      "type": "product",
+      "id": "gift_wrap_product",
+      "label": "Gift wrap product"
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_label",
+      "label": "Gift wrap label",
+      "default": "Add gift wrapping?"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_to",
+      "label": "To field placeholder",
+      "default": "Recipient's name"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_from",
+      "label": "From field placeholder",
+      "default": "Sender's name"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_message",
+      "label": "Message field placeholder",
+      "default": "Gift message (optional)"
+    },
+    {
+      "type": "number",
+      "id": "max_to_length",
+      "label": "Max length for 'To' field",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "max_from_length",
+      "label": "Max length for 'From' field",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "max_message_length",
+      "label": "Max length for 'Message' field",
+      "default": 100
+    }
+  ]
+}
+{% endschema %}
