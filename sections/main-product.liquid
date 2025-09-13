@@ -37,10 +37,66 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
+    /* Gift wrap styles */
+    .gift-wrap-option {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border: 1px solid rgba(var(--color-foreground), 0.1);
+      border-radius: 4px;
+      background: rgba(var(--color-background), 0.5);
+    }
+
+    .gift-wrap__label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .gift-wrap__label input[type="checkbox"] {
+      margin: 0;
+    }
+
+    .gift-wrap__fields {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(var(--color-foreground), 0.1);
+    }
+
+    .gift-wrap__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .gift-wrap__input,
+    .gift-wrap__textarea {
+      width: 100%;
+      padding: 0.8rem !important;
+      border: 1px solid rgba(var(--color-foreground), 0.2);
+      border-radius: 4px;
+      font-size: 16px !important;
+
+      
+    }
+
+    .gift-wrap__textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .gift-wrap__error {
+      color: rgb(var(--color-error));
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'gift-wrap.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -2238,6 +2294,48 @@
       "id": "enable_video_looping",
       "default": false,
       "label": "t:sections.main-product.settings.enable_video_looping.label"
+    },
+    {
+      "type": "header",
+      "content": "Gift Wrap Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_gift_wrap",
+      "label": "Enable gift wrap for this product",
+      "default": false,
+      "info": "Show gift wrap option on this product page"
+    },
+    {
+      "type": "product",
+      "id": "gift_wrap_product",
+      "label": "Gift wrap product",
+      "info": "Select the product to use for gift wrapping. If not selected, gift wrap option will be hidden."
+    },
+    {
+      "type": "text",
+      "id": "gift_wrap_label",
+      "label": "Gift wrap checkbox label",
+      "default": "Wrap as a gift?",
+      "info": "Customize the text shown next to the gift wrap checkbox"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_to",
+      "label": "Recipient name placeholder",
+      "default": "Recipient's name"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_from",
+      "label": "Sender name placeholder",
+      "default": "Sender's name"
+    },
+    {
+      "type": "textarea",
+      "id": "placeholder_message",
+      "label": "Gift message placeholder",
+      "default": "Gift message (optional)"
     },
     {
       "type": "header",

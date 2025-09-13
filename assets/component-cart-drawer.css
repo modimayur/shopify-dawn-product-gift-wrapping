@@ -298,6 +298,10 @@ cart-drawer-items {
   padding-top: 0;
   grid-column: 2 / 5;
 }
+.cart-drawer .cart-items .cart-item__gift-wrap {
+  padding-top: 0;
+  grid-column: 1 / 5;
+}
 
 @media screen and (max-width: 749px) {
   .cart-drawer .cart-item cart-remove-button {

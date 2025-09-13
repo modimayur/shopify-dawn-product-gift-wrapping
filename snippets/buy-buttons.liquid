@@ -41,7 +41,8 @@
         id: product_form_id,
         class: 'form',
         novalidate: 'novalidate',
-        data-type: 'add-to-cart-form'
+        data-type: 'add-to-cart-form',
+        data-product-handle: product.handle
       -%}
         <input
           type="hidden"
@@ -59,6 +60,9 @@
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
+
+        {%- comment -%} Gift wrap snippet - renders optional gift wrap UI when enabled in theme settings {%- endcomment -%}
+        {%- render 'gift-wrap' -%}
 
         <div class="product-form__buttons">
           {%- liquid

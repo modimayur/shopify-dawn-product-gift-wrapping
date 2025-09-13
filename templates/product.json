@@ -78,6 +78,12 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
+        "enable_gift_wrap": true,
+        "gift_wrap_product": "gift-wrap",
+        "gift_wrap_label": "Wrap as a gift?",
+        "placeholder_to": "Recipient's name",
+        "placeholder_from": "Sender's name",
+        "placeholder_message": "Gift message (optional)",
         "padding_top": 36,
         "padding_bottom": 12
       }
